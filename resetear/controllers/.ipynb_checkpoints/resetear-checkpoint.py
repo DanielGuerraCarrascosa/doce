@@ -23,7 +23,7 @@ class Resetear(http.Controller):
     
     _inerit = 'ResUsers'
     
-    @http.route('/resetear', auth='public', website=True)
+    @http.route('/resetear', type='http', auth='public', website=True, sitemap=False)
     def resetear(self, **kw):
         
         emailRecibido = request.params['email']
@@ -41,7 +41,7 @@ class Resetear(http.Controller):
 
         # send email to users with their signup url
         template = False
-        """
+        
         if create_mode:
             try:
                 template = http.request.env.ref('auth_signup.set_password_email', raise_if_not_found=False)
@@ -49,8 +49,8 @@ class Resetear(http.Controller):
                 pass
         if not template:
             template = http.request.env.ref('auth_signup.reset_password_email')
-        """
-        template = http.request.env.ref('auth_signup.set_password_email', raise_if_not_found=False)
+        
+        """template = http.request.env.ref('auth_signup.set_password_email', raise_if_not_found=False)"""
             
         assert template._name == 'mail.template'
 
