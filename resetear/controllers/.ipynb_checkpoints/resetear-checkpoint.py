@@ -12,7 +12,7 @@ class ChangePasswdExternal(http.Controller):
     _inerit = 'res.users'
     @http.route('/reseteo', auth='none', website=True)
     def reset_password(self, **kw):
-        db = 'danielguerracarrascosa-doce'
+        db = 'danielguerracarrascosa-doce-main-2743393'
         login = 'v.fernandez@ampsoftware.com'
         password = 'toor1'
         request.session.authenticate(db, login, password)
