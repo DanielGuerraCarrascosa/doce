@@ -21,6 +21,7 @@
         'mail',
         'web',
         'base',
+        'auth_signup',
     ],
     
     'data': [

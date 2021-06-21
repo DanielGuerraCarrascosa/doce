@@ -21,18 +21,25 @@ from odoo.http import request
 
 class Resetear(http.Controller):
     
-    _inerit = 'ResUsers'
+    """_inerit = 'ResUsers'"""
+    _inherit = 'res.users'
     
-    @http.route('/resetear', type='http', auth='public', website=True, sitemap=False)
-    def resetear(self, **kw):
+    @http.route('/resetear', type='http', csrf=False, auth='public', website=True)
+    def resetear(self, *args, **kw):
+        db = 'danielguerracarrascosa-doce-caso-1-2735523'
+        login = 'd.guerra@ampsoftware.com'
+        password = '12345m'
+        request.session.authenticate(db, login, password)
         
         emailRecibido = request.params['email']
         
-        user = http.request.env['res.users'].search([('email', '=', emailRecibido)])
+        user = http.request.env['res.users'].sudo().search([('email', '=', emailRecibido)])
+        
         
         """ create signup token for each user, and send their signup url by email """
         if http.request.env.context.get('install_mode', False):
             return
+        
         # prepare reset password signup
         create_mode = bool(http.request.env.context.get('create_user'))
 
@@ -49,8 +56,6 @@ class Resetear(http.Controller):
                 pass
         if not template:
             template = http.request.env.ref('auth_signup.reset_password_email')
-        
-        """template = http.request.env.ref('auth_signup.set_password_email', raise_if_not_found=False)"""
             
         assert template._name == 'mail.template'
 
@@ -61,7 +66,7 @@ class Resetear(http.Controller):
             'partner_to': False,
             'scheduled_date': False,
         }
-        template.write(template_values)
+        template.sudo().write(template_values)
 
         force_send = not(http.request.env.context.get('import_file', False))
         template.send_mail(user.id, force_send=force_send, raise_exception=True)

@@ -1,0 +1,2 @@
+id,name,model_id/id,group_id/id,perm_read,perm_write,perm_create,perm_unlink
+resetear_admin,resetear admin,module_resetear,group_resetear_admin,1,1,1,1
