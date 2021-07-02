@@ -2,13 +2,28 @@
 <odoo>
     <data>
         <template id="acceso_desde_portalfarma" name="Acceso Desde Portalfarma">
+            <xpath expr="." position="inside">
+                <script 
+                    type="text/javascript" 
+                    src="https://code.jquery.com/jquery-latest.min.js">
+                 </script>
+                <script 
+                    type="text/javascript" 
+                    src="/acceso/static/src/js/acceso.js">
+                 </script>
+                 <link
+                    href="/acceso/static/src/css/acceso.css"
+                    rel="stylesheet" 
+                    type="text/css"/>
+            </xpath>
             <t t-call="website.layout">
-                <div>
-                    <img/>
+                <div id="cont-izq-img">
+                    <img src="acceso/static/src/img/acceso_1.jpg"/>
+                    <img src="acceso/static/src/img/logo_in.png" id="img-logo_in"/>
                 </div>
-                <div>
+                <div id="cont-der-main">
                     <h1>Acceso con claves de portalfarma</h1>
-                    <p>
+                    <p id="prueba">
                         Bienvenido/a a Farmaceuticos.com. Por favor,
                         <br/>
                         introduce tus datos para acceder a tu zona privada de
@@ -33,7 +48,7 @@
                             <input type="checkbox" required="required" name="checkPrivacidadAcceso"/>
                             He leído y acepto el tratamiento de mis datos conforme viene descrito en la Política de privacidad.
                         </label>
-                        <button type="submit" clas="btn btn-primary">INICIAR SESSIÓN</button>
+                        <button type="button" clas="btn btn-primary" id="btn-acceso">INICIAR SESSIÓN</button>
                     </form>
                 </div>
             </t>
@@ -42,16 +57,26 @@
         <template id="cuenta_recuperada_portalfarma" name="Cuenta Recuperada Desde Portalfarma">
             <t t-call="website.layout">
                 <div>
-                    <img/>
+                    <img src="acceso/static/src/img/acceso_1.jpg"/>
+                    <img src="acceso/static/src/img/logo_in.png" id="img-logo_in"/>
                 </div>
                 <div>
                     <h1>Cuenta recuperada</h1>
                     <p>
                         Hemos recuperado su cuenta en Portalfarma y recuerde que su usuario es el DNI y la clave es la misma que tenía en Portalfarma.
                     </p>
-                    <button type="button" class="btn btn-primary">SIGUIENTE</button>
+                    <button type="button" class="btn btn-primary" id="btn-siguiente">SIGUIENTE</button>
                 </div>
             </t>
         </template>
+        
+    <!--
+        <template id="acceso_desde_portalfarma_ko" inherit_id="acceso_desde_portalfarma" name="Acceso desde portalfarma ko">
+            <xpath expr="//form[@class='WS_acceso_portalfarma']" position="before">
+                <p class="text-danger">Usuario o clave invalida.</p>
+            </xpath>
+        </template>
+    -->
+        
     </data>           
 </odoo>
