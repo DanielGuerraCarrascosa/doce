@@ -16,11 +16,13 @@
                     rel="stylesheet" 
                     type="text/css"/>
             </xpath>
-            <t t-call="website.layout">
+            <!--<t t-call="website.layout">-->
                 <div id="contenido">
                     <div id="cont-izq-img">
-                        <img src="acceso/static/src/img/acceso_1.jpg"/>
-                        <img src="acceso/static/src/img/logo_in.png" id="img-logo_in"/>
+                        <!--<img src="acceso/static/src/img/acceso_1.jpg"/>-->
+                        <div>
+                            <img src="acceso/static/src/img/logo_in.png" id="img-logo_in"/>
+                        </div>
                     </div>
                     <div id="cont-der-main">
                         <h1>Acceso con claves de portalfarma</h1>
@@ -49,11 +51,11 @@
                                 <input type="checkbox" required="required" name="checkPrivacidadAcceso"/>
                                 He leído y acepto el tratamiento de mis datos conforme viene descrito en la Política de privacidad.
                             </label>
-                            <button type="button" clas="btn btn-primary" id="btn-acceso">INICIAR SESSIÓN</button>
+                            <button type="button" class="btn btn-primary" id="btn-acceso">INICIAR SESSIÓN</button>
                         </form>
                     </div>
                 </div>
-            </t>
+            <!--</t>-->
         </template>
         
         <template id="cuenta_recuperada_portalfarma" name="Cuenta Recuperada Desde Portalfarma">
@@ -71,21 +73,25 @@
                     rel="stylesheet" 
                     type="text/css"/>
             </xpath>
-            <t t-call="website.layout">
+            <!--<t t-call="website.layout">-->
                 <div id="contenido">
                     <div id="cont-izq-img">
-                        <img src="acceso/static/src/img/acceso_1.jpg"/>
-                        <img src="acceso/static/src/img/logo_in.png" id="img-logo_in"/>
+                        <!--<img src="acceso/static/src/img/acceso_1.jpg"/>-->
+                        <div>
+                            <img src="acceso/static/src/img/logo_in.png" id="img-logo_in"/>
+                        </div>
                     </div>
                     <div id="cont-der-main">
                         <h1>Cuenta recuperada</h1>
                         <p>
-                            Hemos recuperado su cuenta en Portalfarma y recuerde que su usuario es el DNI y la clave es la misma que tenía en Portalfarma.
+                            Hemos recuperado su cuenta en Portalfarma y recuerde que su usuario es <t t-esc="dni"/> y la clave es la misma que tenía en Portalfarma.
                         </p>
+                        <!--<span id="userDNI"><t t-esc="dni"/></span>
+                        <span id="pass"><t t-esc="pass"/></span>-->
                         <button type="button" class="btn btn-primary" id="btn-siguiente">SIGUIENTE</button>
                     </div>
                 </div>
-            </t>
+            <!--</t>-->
         </template>
         
     <!--
